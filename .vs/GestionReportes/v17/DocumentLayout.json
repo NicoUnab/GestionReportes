@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\GitHub\\GestionReportes\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|solutionrelative:gestionreportes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|solutionrelative:gestionreportes\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|solutionrelative:gestionreportes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|solutionrelative:gestionreportes\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|solutionrelative:gestionreportes\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{641B4D62-D1A2-4500-9C06-7F6DAB9AA9CC}|GestionReportes\\GestionReportes.csproj|c:\\github\\gestionreportes\\gestionreportes\\models\\documento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,28 +34,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\appsettings.json",
+              "RelativeDocumentMoniker": "GestionReportes\\appsettings.json",
+              "ToolTip": "C:\\GitHub\\GestionReportes\\GestionReportes\\appsettings.json",
+              "RelativeToolTip": "GestionReportes\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-28T17:10:04.311Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\Program.cs",
               "RelativeDocumentMoniker": "GestionReportes\\Program.cs",
               "ToolTip": "C:\\GitHub\\GestionReportes\\GestionReportes\\Program.cs",
               "RelativeToolTip": "GestionReportes\\Program.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAAAC4AAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T15:51:49.628Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "FileUploadOperation.cs",
               "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\FileUploadOperation.cs",
               "RelativeDocumentMoniker": "GestionReportes\\FileUploadOperation.cs",
@@ -59,25 +76,24 @@
               "RelativeToolTip": "GestionReportes\\FileUploadOperation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T15:55:05.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T15:55:05.392Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ReporteController.cs",
               "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\Controllers\\ReporteController.cs",
               "RelativeDocumentMoniker": "GestionReportes\\Controllers\\ReporteController.cs",
               "ToolTip": "C:\\GitHub\\GestionReportes\\GestionReportes\\Controllers\\ReporteController.cs",
               "RelativeToolTip": "GestionReportes\\Controllers\\ReporteController.cs",
-              "ViewState": "AQIAAGMAAAAAAAAAAAAowIYAAAAxAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwFAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T15:44:57.105Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "GestionReportes\\Data\\AppDbContext.cs",
@@ -85,12 +101,11 @@
               "RelativeToolTip": "GestionReportes\\Data\\AppDbContext.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T15:42:26.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T15:42:26.53Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Documento.cs",
               "DocumentMoniker": "C:\\GitHub\\GestionReportes\\GestionReportes\\Models\\Documento.cs",
               "RelativeDocumentMoniker": "GestionReportes\\Models\\Documento.cs",
@@ -98,8 +113,7 @@
               "RelativeToolTip": "GestionReportes\\Models\\Documento.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T13:46:32.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T13:46:32.072Z"
             }
           ]
         },

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GestionReportes.Migrations
 {
     /// <inheritdoc />
-    public partial class AddReportes : Migration
+    public partial class AddReporte : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,28 +31,28 @@ namespace GestionReportes.Migrations
                 name: "EstadosReporte",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Descripcion = table.Column<string>(type: "text", nullable: false)
+                    nombre = table.Column<string>(type: "text", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadosReporte", x => x.Id);
+                    table.PrimaryKey("PK_EstadosReporte", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TiposReporte",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Descripcion = table.Column<string>(type: "text", nullable: false)
+                    nombre = table.Column<string>(type: "text", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TiposReporte", x => x.Id);
+                    table.PrimaryKey("PK_TiposReporte", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,37 +113,34 @@ namespace GestionReportes.Migrations
                 name: "Reportes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Descripcion = table.Column<string>(type: "text", nullable: false),
-                    Ubicacion = table.Column<string>(type: "text", nullable: false),
-                    FechaCreacion = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Imagen = table.Column<string>(type: "text", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: false),
+                    ubicacion = table.Column<string>(type: "text", nullable: false),
+                    fechaCreacion = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    imagen = table.Column<int>(type: "integer", nullable: false),
                     idVecino = table.Column<int>(type: "integer", nullable: false),
-                    Vecinoid = table.Column<int>(type: "integer", nullable: false),
                     idEstado = table.Column<int>(type: "integer", nullable: false),
-                    EstadoId = table.Column<int>(type: "integer", nullable: false),
-                    idTipo = table.Column<int>(type: "integer", nullable: false),
-                    TipoId = table.Column<int>(type: "integer", nullable: false)
+                    idTipo = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reportes", x => x.Id);
+                    table.PrimaryKey("PK_Reportes", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Reportes_EstadosReporte_EstadoId",
-                        column: x => x.EstadoId,
+                        name: "FK_Reportes_EstadosReporte_idEstado",
+                        column: x => x.idEstado,
                         principalTable: "EstadosReporte",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reportes_TiposReporte_TipoId",
-                        column: x => x.TipoId,
+                        name: "FK_Reportes_TiposReporte_idTipo",
+                        column: x => x.idTipo,
                         principalTable: "TiposReporte",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reportes_Vecinos_Vecinoid",
-                        column: x => x.Vecinoid,
+                        name: "FK_Reportes_Vecinos_idVecino",
+                        column: x => x.idVecino,
                         principalTable: "Vecinos",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -153,56 +150,54 @@ namespace GestionReportes.Migrations
                 name: "HistorialReportes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    idReporte = table.Column<int>(type: "integer", nullable: false),
-                    idFuncionario = table.Column<int>(type: "integer", nullable: false),
                     fecha = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     observacion = table.Column<string>(type: "text", nullable: false),
-                    ReporteId = table.Column<int>(type: "integer", nullable: false),
-                    Funcionarioid = table.Column<int>(type: "integer", nullable: false)
+                    idReporte = table.Column<int>(type: "integer", nullable: false),
+                    idFuncionario = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HistorialReportes", x => x.Id);
+                    table.PrimaryKey("PK_HistorialReportes", x => x.id);
                     table.ForeignKey(
-                        name: "FK_HistorialReportes_FuncionariosMunicipal_Funcionarioid",
-                        column: x => x.Funcionarioid,
+                        name: "FK_HistorialReportes_FuncionariosMunicipal_idFuncionario",
+                        column: x => x.idFuncionario,
                         principalTable: "FuncionariosMunicipal",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_HistorialReportes_Reportes_ReporteId",
-                        column: x => x.ReporteId,
+                        name: "FK_HistorialReportes_Reportes_idReporte",
+                        column: x => x.idReporte,
                         principalTable: "Reportes",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_HistorialReportes_Funcionarioid",
+                name: "IX_HistorialReportes_idFuncionario",
                 table: "HistorialReportes",
-                column: "Funcionarioid");
+                column: "idFuncionario");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HistorialReportes_ReporteId",
+                name: "IX_HistorialReportes_idReporte",
                 table: "HistorialReportes",
-                column: "ReporteId");
+                column: "idReporte");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reportes_EstadoId",
+                name: "IX_Reportes_idEstado",
                 table: "Reportes",
-                column: "EstadoId");
+                column: "idEstado");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reportes_TipoId",
+                name: "IX_Reportes_idTipo",
                 table: "Reportes",
-                column: "TipoId");
+                column: "idTipo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reportes_Vecinoid",
+                name: "IX_Reportes_idVecino",
                 table: "Reportes",
-                column: "Vecinoid");
+                column: "idVecino");
         }
 
         /// <inheritdoc />

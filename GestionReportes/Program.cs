@@ -25,6 +25,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine($"Token inválido: {context.Exception.Message}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token validado correctamente");
+                return Task.CompletedTask;
+            }
+        };
     });
 // Add services to the container.
 
@@ -39,23 +52,30 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<FileUploadOperation>();
 });
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/GestionReportes/swagger/v1/swagger.json", "GestionReportes API v1");
-        c.RoutePrefix = string.Empty; // Swagger estará disponible en la raíz
-    });
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseCors("AllowAll");
 app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

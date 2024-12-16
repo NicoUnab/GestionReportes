@@ -1,15 +1,16 @@
-﻿namespace GestionReportes.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GestionReportes.Models
 {
     public class HistorialReporte
     {
-        public int Id { get; set; }
-        public int idReporte { get; set; }
-        public int idFuncionario { get; set; }
+        public int id { get; set; }
         public DateTime fecha { get; set; }
         public string observacion { get; set; }
-
+        public int idReporte { get; set; }
+        public int idFuncionario { get; set; }
         // Relaciones
         public Reporte Reporte { get; set; }
-        public FuncionarioMunicipal Funcionario { get; set; }
+        public FuncionarioMunicipal FuncionarioMunicipal { get; set; }
     }
 }

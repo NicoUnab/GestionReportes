@@ -27,6 +27,34 @@ namespace GestionReportes.Data
                 .HasOne(v => v.Usuario)
                 .WithOne()
                 .HasForeignKey<FuncionarioMunicipal>(v => v.id);
+            modelBuilder.Entity<Reporte>(entity =>
+            {
+                entity.HasOne(r => r.Vecino)
+                      .WithMany(v => v.Reportes) // O relación inversa, como Vecino.Reportes
+                      .HasForeignKey(r => r.idVecino); // Define clave foránea
+
+                entity.HasOne(r => r.Estado)
+                      .WithMany()
+                      .HasForeignKey("idEstado");
+
+                entity.HasOne(r => r.Tipo)
+                      .WithMany()
+                      .HasForeignKey("idTipo");
+
+                entity.HasMany(r => r.HistorialReportes)
+                      .WithOne(hr => hr.Reporte)
+                      .HasForeignKey(hr => hr.idReporte);
+                      
+            });
+            modelBuilder.Entity<HistorialReporte>(entity =>
+            {
+            //    entity.HasOne(h => h.Reporte)
+            //          .WithMany()
+            //          .HasForeignKey(h => h.Reporte.id);
+                entity.HasOne(hr => hr.FuncionarioMunicipal)
+                      .WithMany()
+                      .HasForeignKey(hr => hr.idFuncionario);
+            });
         }
     }
 }

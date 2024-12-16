@@ -11,5 +11,6 @@ namespace GestionReportes.Models
         public string direccion { get; set; }
         // Relación con Usuario
         public Usuario Usuario { get; set; }
+        public ICollection<Reporte> Reportes { get; set; }
     }
 }

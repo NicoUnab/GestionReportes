@@ -48,21 +48,21 @@ namespace GestionReportes.Migrations
 
             modelBuilder.Entity("GestionReportes.Models.EstadoReporte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("descripcion")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("nombre")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("EstadosReporte");
                 });
@@ -83,17 +83,11 @@ namespace GestionReportes.Migrations
 
             modelBuilder.Entity("GestionReportes.Models.HistorialReporte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Funcionarioid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ReporteId")
-                        .HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<DateTime>("fecha")
                         .HasColumnType("timestamp with time zone");
@@ -108,46 +102,29 @@ namespace GestionReportes.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
-                    b.HasIndex("Funcionarioid");
+                    b.HasIndex("idFuncionario");
 
-                    b.HasIndex("ReporteId");
+                    b.HasIndex("idReporte");
 
                     b.ToTable("HistorialReportes");
                 });
 
             modelBuilder.Entity("GestionReportes.Models.Reporte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("descripcion")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("EstadoId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("FechaCreacion")
+                    b.Property<DateTime>("fechaCreacion")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Imagen")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("TipoId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Ubicacion")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Vecinoid")
-                        .HasColumnType("integer");
 
                     b.Property<int>("idEstado")
                         .HasColumnType("integer");
@@ -158,34 +135,41 @@ namespace GestionReportes.Migrations
                     b.Property<int>("idVecino")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.Property<int>("imagen")
+                        .HasColumnType("integer");
 
-                    b.HasIndex("EstadoId");
+                    b.Property<string>("ubicacion")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.HasIndex("TipoId");
+                    b.HasKey("id");
 
-                    b.HasIndex("Vecinoid");
+                    b.HasIndex("idEstado");
+
+                    b.HasIndex("idTipo");
+
+                    b.HasIndex("idVecino");
 
                     b.ToTable("Reportes");
                 });
 
             modelBuilder.Entity("GestionReportes.Models.TipoReporte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("descripcion")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("nombre")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("TiposReporte");
                 });
@@ -251,19 +235,19 @@ namespace GestionReportes.Migrations
 
             modelBuilder.Entity("GestionReportes.Models.HistorialReporte", b =>
                 {
-                    b.HasOne("GestionReportes.Models.FuncionarioMunicipal", "Funcionario")
+                    b.HasOne("GestionReportes.Models.FuncionarioMunicipal", "FuncionarioMunicipal")
                         .WithMany()
-                        .HasForeignKey("Funcionarioid")
+                        .HasForeignKey("idFuncionario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GestionReportes.Models.Reporte", "Reporte")
-                        .WithMany()
-                        .HasForeignKey("ReporteId")
+                        .WithMany("HistorialReportes")
+                        .HasForeignKey("idReporte")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Funcionario");
+                    b.Navigation("FuncionarioMunicipal");
 
                     b.Navigation("Reporte");
                 });
@@ -272,19 +256,19 @@ namespace GestionReportes.Migrations
                 {
                     b.HasOne("GestionReportes.Models.EstadoReporte", "Estado")
                         .WithMany()
-                        .HasForeignKey("EstadoId")
+                        .HasForeignKey("idEstado")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GestionReportes.Models.TipoReporte", "Tipo")
                         .WithMany()
-                        .HasForeignKey("TipoId")
+                        .HasForeignKey("idTipo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GestionReportes.Models.Vecino", "Vecino")
-                        .WithMany()
-                        .HasForeignKey("Vecinoid")
+                        .WithMany("Reportes")
+                        .HasForeignKey("idVecino")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -304,6 +288,16 @@ namespace GestionReportes.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("GestionReportes.Models.Reporte", b =>
+                {
+                    b.Navigation("HistorialReportes");
+                });
+
+            modelBuilder.Entity("GestionReportes.Models.Vecino", b =>
+                {
+                    b.Navigation("Reportes");
                 });
 #pragma warning restore 612, 618
         }

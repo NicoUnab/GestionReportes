@@ -2,18 +2,17 @@
 {
     public class Reporte
     {
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
-        public string Ubicacion { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public string Imagen { get; set; }
+        public int id { get; set; }
+        public string descripcion { get; set; }
+        public string ubicacion { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public int imagen { get; set; }
+        public int idVecino { get; set; }
 
         // Relaciones
-        public int idVecino { get; set; }
         public Vecino Vecino { get; set; }
-        public int idEstado { get; set; }
         public EstadoReporte Estado { get; set; }
-        public int idTipo { get; set; }
         public TipoReporte Tipo { get; set; }
+        public ICollection<HistorialReporte> HistorialReportes { get; set; }
     }
 }
